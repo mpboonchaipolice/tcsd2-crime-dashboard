@@ -49,6 +49,13 @@ def csv_url(gid: str) -> str:
 def health():
     return {"status": "ok"}
 
+@app.get("/")
+def root():
+    return {
+        "service": "TCSD2 Dashboard API",
+        "endpoints": ["/health", "/dashboard"],
+        "note": "Open /health to test. /dashboard requires Basic Auth."
+    }
 
 @app.get("/dashboard", dependencies=[Depends(require_login)])
 def dashboard():
@@ -76,3 +83,4 @@ def dashboard():
         "suspects": df_suspects.fillna("").to_dict(orient="records"),
         "seizures": df_seizures.fillna("").to_dict(orient="records"),
     }
+
