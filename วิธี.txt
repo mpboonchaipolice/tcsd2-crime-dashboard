@@ -1,0 +1,81 @@
+cd /d "OneDrive\1.POLICE\CIB\TCSD ปอท\Template Form\Automate Template\dashboard_web\cib_case_dashboard\backend"
+
+cd /d "OneDrive\1.POLICE\CIB\TCSD ปอท\Template Form\Automate Template\dashboard_web\cib_case_dashboard\frontend"
+
+
+2) รัน Backend (FastAPI) แบบ Python 3.13.3 (ไม่ใช้ pandas)
+
+เปิด CMD (หน้าต่างที่ 1) แล้วทำตามนี้
+
+2.1 เข้า backend
+cd /d "OneDrive\1.POLICE\CIB\TCSD ปอท\Template Form\Automate Template\dashboard_web\cib_case_dashboard\backend"
+
+2.2 ตั้ง encoding
+chcp 65001
+
+2.3 สร้าง + เปิด venv
+python -m venv .venv
+.venv\Scripts\activate
+
+2.4 กู้ pip ให้สะอาด + อัปเกรด
+python -m ensurepip --upgrade
+python -m pip install --upgrade pip setuptools wheel
+
+2.5 ติดตั้งไลบรารี “ขั้นต่ำ” (ไม่ใช้ pandas)
+python -m pip install fastapi uvicorn[standard] openpyxl python-dateutil
+
+2.6 แก้ requirements.txt (กันเผลอติดตั้ง pandas)
+
+เปิดไฟล์ backend\requirements.txt แล้วให้เหลือแค่นี้:
+
+fastapi==0.115.0
+uvicorn[standard]==0.30.6
+openpyxl==3.1.5
+python-dateutil==2.9.0.post0
+
+2.7 รัน backend
+python -m uvicorn app:app --reload --port 8000
+
+
+เช็ค:
+
+http://127.0.0.1:8000/health
+
+ปล่อย CMD หน้านี้ค้างไว้
+--------------------------
+3) รัน Frontend (React)
+
+เปิด CMD (หน้าต่างที่ 2)
+
+3.1 เข้า frontend
+cd /d "C:\Users\YAKYAI\OneDrive\1.POLICE\CIB\TCSD ปอท\Template Form\Automate Template\dashboard_web\cib_case_dashboard\frontend"
+
+3.2 ติดตั้ง + รัน
+npm install
+npm run dev -- --port 5174
+
+
+เปิด:
+
+http://localhost:5174
+
+---------------
+git config --global user.name "mpboonchaipolice"
+git config --global user.email "mpboonchai.police@gmail.com"
+"
+
+
+cd /d "OneDrive\1.POLICE\CIB\TCSD ปอท\Template Form\Automate Template\dashboard_web\cib_case_dashboard"
+git init
+git add .
+git commit -m "init tcsd2 dashboard"
+git branch -M main
+
+------------------------
+2) ครั้งหน้าถ้ามีแก้ไขไฟล์ แล้วอยากอัปขึ้น GitHub
+
+รันในโฟลเดอร์โปรเจกต์:
+
+git add .
+git commit -m "update"
+git push

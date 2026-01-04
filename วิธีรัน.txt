@@ -1,0 +1,30 @@
+5.1 เปิด CMD ใหม่
+
+แล้วพิมพ์:
+
+cd /d "OneDrive\1.POLICE\CIB\TCSD ปอท\Template Form\Automate Template\dashboard_web\cib_case_dashboard"
+cd frontend
+npm install
+npm run dev
+
+
+แล้วเปิดเว็บ:
+
+http://localhost:5173
+
+ถ้า CMD บอกว่า npm ไม่รู้จัก
+
+แปลว่าเครื่องยังไม่มี Node.js
+ให้ติดตั้ง Node.js LTS ก่อน แล้วกลับมารันคำสั่งเดิมอีกครั้ง
+
+หลังจากเปิดเว็บได้แล้ว
+
+ถ้าคุณแก้ไฟล์ Excel backend\data\cases.xlsx แล้วอยากให้ข้อมูลอัปเดต:
+เปิด CMD ใหม่ แล้วรัน:
+
+curl -X POST http://127.0.0.1:8000/reload
+
+
+รันใหม่หมด
+cd /d "OneDrive\1.POLICE\CIB\TCSD ปอท\Template Form\Automate Template\dashboard_web\cib_case_dashboard\backend"
+

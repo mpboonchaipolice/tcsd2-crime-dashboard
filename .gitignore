@@ -1,0 +1,20 @@
+# data / excel
+*.xlsx
+*.xls
+*.csv
+backend/data/
+backend/*.db
+backend/runtime.txt
+
+# python
+.venv/
+__pycache__/
+*.pyc
+
+# node / build
+frontend/node_modules/
+frontend/dist/
+backend/.venv/
+__pycache__/
+*.pyc
+.DS_Store
